@@ -38,8 +38,9 @@ class GroupsController < ApplicationController
     end
   end
 
+
   def destroy
-    
+
 
     @group.destroy
     flash[:alert] = "Group Deleted"
@@ -53,11 +54,9 @@ class GroupsController < ApplicationController
     if current_user != @group.user
       redirect_to root-path, alert: "You have no permission."
     end
+  end
 
   def group_params
     params.require(:group).permit(:title, :description)
   end
-
-
-
 end
